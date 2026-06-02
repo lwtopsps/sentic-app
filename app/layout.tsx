@@ -3,9 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LoadingOverlay from "@/src/Components/LoadingOverlay";
 import RouteTransition from "@/src/Components/RouteTransition";
-import Sidebar from '@/src/Components/Sidebar';
-import ChatPanel from '@/src/Components/ChatPanel';
-import ThemeToggle from '@/src/Components/ThemeToggle';
+import Sidebar from "@/src/Components/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,18 +32,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">
         <LoadingOverlay>
-          <div className="min-h-screen flex">
-            <Sidebar />
-            <main className="flex-1">
-              <div className="flex items-center justify-end p-4">
-                <ThemeToggle />
-              </div>
-              <RouteTransition>
-                {children}
-              </RouteTransition>
-            </main>
-            <ChatPanel />
-          </div>
+          <Sidebar />
+          <RouteTransition>
+            {children}
+          </RouteTransition>
         </LoadingOverlay>
       </body>
     </html>
